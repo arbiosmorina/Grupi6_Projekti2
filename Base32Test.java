@@ -37,7 +37,7 @@ public class Base32Test {
          *
          */
 
-        static public void encode(final byte[] bytes) {
+        static public String encode(final byte[] bytes) {
             int i = 0, index = 0, digit = 0;
             int currByte, nextByte;
             StringBuffer base32 = new StringBuffer((bytes.length + 7) * 8 / 5);
@@ -60,8 +60,16 @@ public class Base32Test {
                     digit <<= index;
                     digit |= nextByte >> (8 - index);
                     i++;
+                } else {
+                    digit = (currByte >> (8 - (index + 5))) & 0x1F;
+                    index = (index + 5) % 8;
+                    if (index == 0)
+                        i++;
                 }
+                base32.append(base32Chars.charAt(digit));
             }
+
+            return base32.toString();
         }
 
 
