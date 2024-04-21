@@ -12,9 +12,6 @@ import java.util.Scanner;
 
 @SuppressWarnings("unused")
 public class Base32Test {
-
-
-
     public class base32Imp {
         private static final String base32Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
         private static final int[] base32Lookup = { 0xFF, 0xFF, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F,
@@ -72,7 +69,53 @@ public class Base32Test {
             return base32.toString();
         }
 
+
+
+
+
+//      * For testing, take a command-line argument in Base32, decode,
+//      * print in hex, encode, print
+        static public void main(String[] args) {
+            if (args.length == 0) {
+                System.out.println("Supply a Base32-encoded argument.");
+                return;
+            }
+            System.out.println(" Original: " + args[0]);
+            byte[] decoded = base32Imp.decode(args[0]);
+            System.out.print("      Hex: ");
+            for (int i = 0; i < decoded.length; i++) {
+                int b = decoded[i];
+                if (b < 0) {
+                    b += 256;
+                }
+                System.out.print(
+                        (Integer.toHexString(b + 256)).substring(1));
+            }
+            System.out.println();
+            System.out.println("Reencoded: " + base32Imp.encode(decoded));
         }
+    }
+    public static void main(String[] a) {
+
+        Scanner input = new Scanner(System.in);
+        String test;
+        System.out.println("Jepni nje input i cili do te enkodohet: ");
+        String theInput;
+        theInput = input.nextLine();
+
+
+
+
+        String theEncoded = base32Imp.encode(theInput.getBytes());
+        byte[] theDecoded = base32Imp.decode(theEncoded);
+        System.out.println("Input   : "+theInput);
+        System.out.println("Encoded : "+theEncoded);
+
+        System.out.println("Decoded : "+new String(theDecoded));
+        input.close();
+        return;
+
+    }
 }
 
 
