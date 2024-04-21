@@ -10,6 +10,7 @@ Title of Project : Implementation of base32 encoder and decoder
 Professor : Mërgim Hoti
 
 Contributors :
+
                Arbios Morina
 
                Arbnora Dragaj
