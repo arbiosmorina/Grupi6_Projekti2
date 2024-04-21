@@ -1,9 +1,14 @@
 # Projekti
 University of Prishtina 
+
 Faculty of Electrical and Computer Engineering (FIEK) 
+
 Department : Computer and software engineering
+
 Title of Project : Implementation of base32 encoder and decoder
+
 Proffesor : Mërgim Hoti
+
 Contributors : Arbios Morina
                Arbnora Dragaj
                Argjend Nimanaj
