@@ -1,9 +1,5 @@
-
 import java.io.*;
 import java.util.Scanner;
-
-
-
 
 @SuppressWarnings("unused")
 public class Base32Test {
